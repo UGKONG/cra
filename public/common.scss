@@ -1,0 +1,95 @@
+
+// Variable
+$gray: #777;
+$whiteGray: #ddd;
+$whiteGrayHover: #ccc;
+$whiteGrayActive: #bbb;
+$darkGray: #555;
+$red: #ff4f4f;
+$blue: #4952f8;
+$green: #00c100;
+$white: #fff;
+$whiteBlack: #333;
+$black: #282828;
+$orange: #f88629;
+$yellow: #f7d740;
+$purple: #ab14fc;
+$pink: #fb44e4;
+$navy: #5a02aa;
+$bg: #00000020;
+
+$index1: 5;
+$index2: 10;
+$index3: 15;
+$index4: 20;
+$index5: 25;
+$index6: 30;
+$index9: 99999999999999999999;
+
+// Mixin
+@mixin flex($dir: flex-start, $option: row, $wrap: nowrap) {
+  display: flex;
+  align-items: center;
+  justify-content: $dir;
+  flex-flow: $option;
+  flex-wrap: $wrap;
+}
+@mixin font($size: inherit, $weight: inherit, $color: inherit, $spacing: auto) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  letter-spacing: $spacing;
+}
+
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin wrap($box: block) {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: $box;
+}
+
+@mixin background-reset($size: contain) {
+  background-repeat: no-repeat;
+  background-size: $size;
+  background-position: center;
+}
+
+@mixin position-top-left($po: fixed, $top: unset, $left: unset) {
+  position: $po;
+  top: $top;
+  left: $left;
+}
+
+@mixin position-top-right($po: fixed, $top: unset, $right: unset) {
+  position: $po;
+  top: $top;
+  right: $right;
+}
+
+@mixin position-bottom-left($po: fixed, $bottom: unset, $left: unset) {
+  position: $po;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin position-bottom-right($po: fixed, $bottom: unset, $right: unset) {
+  position: $po;
+  right: $right;
+  bottom: $bottom;
+}
+
+@mixin size($w: static, $h: static) {
+  width: $w;
+  height: $h;
+}
+
+@mixin border($border: auto, $radius: auto) {
+  border: $border;
+  border-radius: $radius;
+}
