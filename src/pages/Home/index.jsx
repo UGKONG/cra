@@ -1,6 +1,6 @@
 import React from 'react';
 import Styled from 'styled-components';
-import { PageAnimate } from '@hook';
+import { PageAnimate } from '#/hook';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiFillApi } from 'react-icons/ai';
 

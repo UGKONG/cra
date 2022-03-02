@@ -1,12 +1,13 @@
 import React from 'react';
 import Styled from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
-import { useTitle } from '@react-hook';
+import { useTitle } from '#/hook';
+import { programName } from '#/static';
 import Header from '@/pages/Common/Header';
 import Home from '@/pages/Home';
 
 const App = () => {
-  useTitle('준비가 완료되었습니다.');
+  useTitle(programName);
   return (
     <Wrap>
       <Header />

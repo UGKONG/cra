@@ -1,1 +1,1 @@
-export const db = 'http://localhost:3002';
+export const programName = 'Create React App';

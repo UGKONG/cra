@@ -6,18 +6,12 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
+      '#': _ + '/modules/',
+      '~': _ + '/public/',
       '@': _ + '/src/',
-      '@modules': _ + '/modules/',
-      '@public': _ + '/public/',
-      '@static': _ + '/modules/static.js',
-      '@styles': _ + '/modules/styles.js',
-      '@reset': _ + '/public/reset.scss',
-      '@react-hook': _ + '/modules/reactHook.js',
-      '@hook': _ + '/modules/hook.js',
-      '@API': _ + '/modules/API.js',
     }
   },
-  entry: './src/index.js',
+  entry: _ + '/src/index.js',
   output: {
     path: _ + '/build',
     filename: 'index.js'
@@ -49,7 +43,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: _ + '/public/index.html',
       filename: 'index.html'
     }),
   ],
