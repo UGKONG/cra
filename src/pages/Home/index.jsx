@@ -9,7 +9,7 @@ const Home = () => {
   const num = useSelector(state => state.number);
   const up = () => dispatch({ type: 'setNumber', payload: num + 1 });
   const down = () => dispatch({ type: 'setNumber', payload: num - 1 });
-
+  
   return (
     <PageAnimate name='slide-up'>
       <Wrap>

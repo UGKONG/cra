@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import _ from 'lodash';
 import axios from 'axios';
+import SortableList, { SortableItem } from 'react-easy-sort';
 
 // 리액트 라우터 페이지 전환 애니메이션 함수
 export function PageAnimate (props) {
@@ -51,6 +52,29 @@ export function PageAnimate (props) {
   )
 }
 
+export function SortList (props) {
+  if (props.list === undefined || props.list === null) return console.warn('list is not found!!');
+  if (!Array.isArray(props.list)) return console.warn('list is not array!!');
+  if (!props.id) return console.warn('id is not found!!');
+  if (!props.name) return console.warn('name is not found!!');
+  
+  const list = props.list;
+  const onChange = useCallback((_old, _new) => {
+    let result = useArrayMove(list, _old, _new);
+    props.change(result);
+  }, [list, props]);
+
+  return (
+    <SortableList onSortEnd={onChange} draggedItemClassName='active'>
+      {list.map(item => (
+        <SortableItem key={item[props.id]}>
+          <div style={props.itemStyle}>{ item.children ?? item[props.name] }</div>
+        </SortableItem>
+      ))}
+    </SortableList>
+  );
+}
+
 // 브라우저 타이틀 변경 함수
 export function useTitle (defaultTitle = '') {
   const [title, setTitle] = useState(defaultTitle);
@@ -63,7 +87,7 @@ export function useTitle (defaultTitle = '') {
 
 // 배열 중복값 필터 함수
 export function useCleanArray (allArr = [], fieldName, returnKey = []) {
-  if (allArr.length == 0) return console.warn('배열 allArr가 비어있습니다.');
+  if (allArr.length === 0) return console.warn('배열 allArr가 비어있습니다.');
   if (!fieldName) return console.warn('Key값이 없습니다.');
   if (!Array.isArray(returnKey)) return console.warn('Return Key값이 배열이 아닙니다.');
   let result = _.uniqBy(allArr, fieldName);
@@ -542,7 +566,7 @@ export const useAlert = {
 // 세션 스토리지 (GET, POST, PUT)
 export function useSessionStorage (key = null, value) {
   if (!key || typeof(key) != 'string') return console.warn('useSession key is Null!!');
-  if (value == undefined) return window.sessionStorage[key];
+  if (!value) return window.sessionStorage[key];
   
   window.sessionStorage.setItem(key, value);
   return window.sessionStorage[key];
@@ -559,7 +583,7 @@ export function useRemoveSessionStorage (key) {
 // 로컬 스토리지 (GET, POST, PUT)
 export function useLocalStorage (key = null, value) {
   if (!key || typeof(key) != 'string') return console.warn('useSession key is Null!!');
-  if (value == undefined) return window.localStorage[key];
+  if (!value) return window.localStorage[key];
   
   window.localStorage.setItem(key, value);
   return window.localStorage[key];
@@ -602,7 +626,7 @@ export function useForm (data = {}, files = {}) {
 
   let key = Object.keys(files)[0];
   if (!key) return form;
-  if (files[key].length == 0) return form;
+  if (files[key].length === 0) return form;
   files[key].forEach((file) => form.append(key, file));
 
   return form;
@@ -623,4 +647,21 @@ export function useCreateElement (tagName = 'div', attribute = {}, children = ''
   }
   tag.innerHTML = children;
   return tag;
+}
+
+// 배열 순서 랜덤 함수
+export function useRandomArray (array = []) {
+  if (array.length === 0 || !Array.isArray(array)) return [];
+  return _.shuffle(array);
+}
+
+// 배열 순서 변경 함수
+export function useArrayMove (_array, _old, _new) {
+  if (!Array.isArray(_array)) return console.warn('_array is not Array!!');
+  if (_array.length === 0) return _array;
+  let result = [];
+  let temp = _array[_old];
+  _array.forEach((item, i) => i !== _old && result.push(item));
+  result.splice(_new, 0, temp);
+  return result;
 }
