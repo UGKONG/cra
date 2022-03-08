@@ -1,13 +1,13 @@
 {
   "name": "cra",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "./src/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --port 3000 --hot",
     "build": "webpack --mode production",
     "db": "json-server ./Database.json -w -H localhost -p 3002",
-    "dev": "concurrently \"yarn start\" \"yarn db\""
+    "dev": "concurrently \"npm run db\" \"npm run start\""
   },
   "keywords": [],
   "author": "",
