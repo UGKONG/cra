@@ -7,6 +7,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '#': _ + '/modules/',
+      '%': _ + '/modules/hooks/',
       '~': _ + '/public/',
       '@': _ + '/src/',
     }
