@@ -1,0 +1,47 @@
+{
+  "name": "cra",
+  "version": "2.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --port 3000 --hot",
+    "build": "webpack --mode production",
+    "db": "json-server ./Database.json -w -H localhost -p 3002",
+    "dev": "concurrently \"npm run db\" \"npm run start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "concurrently": "^7.0.0",
+    "framer-motion": "^6.2.8",
+    "json-server": "^0.17.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-easy-sort": "^1.4.1",
+    "react-icons": "^4.3.1",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.2",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.6.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.5.1",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
