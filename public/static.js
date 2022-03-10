@@ -1,1 +1,0 @@
-export const programName = 'Create React App';
