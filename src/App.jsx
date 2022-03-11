@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import useTitle from '%/useTitle';
 import { programName } from '~/static';
 
@@ -8,7 +8,7 @@ import { programName } from '~/static';
 import Header from '@/pages/Common/Header';
 import Home from '@/pages/Home';
 
-const App = () => {
+export default function App() {
   useTitle(programName);
 
   return (
@@ -21,7 +21,5 @@ const App = () => {
     </>
   );
 }
-
-export default App;
 
 const Name = styled.h1`display: none`;
