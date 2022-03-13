@@ -7,6 +7,9 @@ const number = (state = 0, { type, payload }) => {
   }
 }
 
-export default {
-  number
+
+const result = {
+  number,
 }
+
+export default result;
