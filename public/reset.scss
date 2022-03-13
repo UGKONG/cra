@@ -21,6 +21,9 @@ code {
 //   @include wrap();
 //   overflow: hidden;
 // }
+html {
+  background-color: $background-color;;
+}
 button, a[btn] {
   @include border(none, 3px);
   @include font(14px, unset, $darkGray);
