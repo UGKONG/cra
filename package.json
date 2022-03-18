@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --port 3000 --hot",
     "build": "webpack --mode production",
-    "db": "json-server ./Database.json -w -H localhost -p 3002",
+    "db": "json-server ./db.json -w -H localhost -p 3002",
     "dev": "concurrently \"npm run db\" \"npm run start\""
   },
   "keywords": [],

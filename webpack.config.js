@@ -6,7 +6,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '%': _ + '/modules/',
+      '%': _ + '/hooks/',
       '~': _ + '/public/',
       '@': _ + '/src/',
     }

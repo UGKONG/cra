@@ -1,6 +1,6 @@
 import React from 'react';
-import PageAnimate from '%/hooks/PageAnimate';
 import styled from 'styled-components';
+import PageAnimate from '%/PageAnimate';
 
 export default function Home() {
   return (

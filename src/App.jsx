@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import useTitle from '%/hooks/useTitle';
+import useTitle from '%/useTitle';
 import { programName } from '~/static';
 
 // Components
